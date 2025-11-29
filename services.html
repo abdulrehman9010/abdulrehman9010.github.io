@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Services — WebEditz</title>
+<style>
+  :root{--bg:#fff;--text:#111827;--muted:#6b7280;--card:#fff;--glass:rgba(16,24,40,0.04);--accent:#2563eb}
+  [data-theme="dark"]{--bg:#071223;--text:#e6eef8;--muted:#9aa7bb}
+  body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
+  .container{max-width:1000px;margin:0 auto;padding:28px}
+  h1{margin:0 0 10px}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+  .svc{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--glass)}
+  .svc h3{margin:0 0 8px}
+  .muted{color:var(--muted)}
+  @media(max-width:900px){.services{grid-template-columns:1fr}}
+</style>
+</head><body>
+<div class="container">
+  <header style="display:flex;justify-content:space-between;align-items:center"><div><img src="logo.png" style="width:44px;height:44px;border-radius:10px"></div><nav><a href="index.html">Home</a> · <a href="projects.html">Projects</a> · <a href="contact.html">Contact</a></nav></header>
+  <main style="margin-top:20px">
+    <h1>Services I offer</h1>
+    <p class="muted">Small, friendly, and affordable front-end work for students and small businesses.</p>
 
+    <div class="services">
+      <div class="svc"><h3>Page Editing</h3><p class="muted">Polish existing pages — spacing, typography, layout fixes.</p></div>
+      <div class="svc"><h3>Landing Pages</h3><p class="muted">Simple responsive landing pages with clear CTA.</p></div>
+      <div class="svc"><h3>Portfolio Setup</h3><p class="muted">Build your first portfolio and host it on GitHub Pages.</p></div>
+    </div>
+  </main>
+
+  <footer style="text-align:center;color:var(--muted);margin-top:28px">© 2025 Abdul Rehman</footer>
+</div>
+</body></html>
