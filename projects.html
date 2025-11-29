@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Projects — WebEditz</title>
+<style>
+  :root{--bg:#fff;--card:#fff;--text:#111827;--muted:#6b7280;--accent:#2563eb;--glass:rgba(16,24,40,0.04)}
+  [data-theme="dark"]{--bg:#071223;--card:#071223;--text:#e6eef8;--muted:#9aa7bb;--accent:#60a5fa}
+  body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
+  .container{max-width:1100px;margin:0 auto;padding:28px}
+  .nav{display:flex;justify-content:space-between;align-items:center}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+  .project{background:var(--card);border-radius:12px;padding:16px;border:1px solid var(--glass)}
+  .project h4{margin:0 0 8px}
+  .meta{color:var(--muted);font-size:13px}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(1,1fr)}}
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav">
+    <div><img src="logo.png" alt="logo" style="width:42px;height:42px;border-radius:8px;vertical-align:middle"><strong style="margin-left:10px">Projects</strong></div>
+    <div>
+      <a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
+  <section style="margin-top:20px">
+    <h2>Selected Projects</h2>
+    <p style="color:var(--muted)">Examples of small projects and front-end tasks — click to view (demo not included).</p>
+
+    <div class="grid">
+      <div class="project"><h4>Calculator App coming soon </h4><p class="meta">HTML • CSS • JS</p><p style="color:var(--muted)">A minimal responsive calculator UI.</p></div>
+      <div class="project"><h4>Landing Page coming soon</h4><p class="meta">HTML • CSS</p><p style="color:var(--muted)">Clean product landing with CTA.</p></div>
+      <div class="project"><h4>To-Do UI coming soon</h4><p class="meta">HTML • CSS • LocalStorage</p><p style="color:var(--muted)">Task list with persistent state.</p></div>
+    </div>
+  </section>
+
+  <footer style="margin-top:28px;color:var(--muted);text-align:center">© 2025 Abdul Rehman</footer>
+</div>
+</body>
+                                                                                                       </html>
