@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About — Abdul Rehman</title>
+<style>
+  :root{--bg:#fff;--card:#fff;--text:#111827;--muted:#6b7280;--accent:#2563eb;--glass:rgba(16,24,40,0.04)}
+  [data-theme="dark"]{--bg:#071223;--card:#071223;--text:#e6eef8;--muted:#9aa7bb;--accent:#60a5fa;--glass:rgba(255,255,255,0.03)}
+  body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
+  .container{max-width:1100px;margin:0 auto;padding:28px}
+  .nav{display:flex;justify-content:space-between;align-items:center}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand img{width:44px;height:44px;border-radius:8px}
+  .menu{display:flex;gap:12px}
+  .menu a{color:var(--muted);text-decoration:none;font-weight:700;padding:8px;border-radius:8px}
+  .menu a:hover{background:var(--glass);color:var(--text)}
+  .hero{display:flex;gap:24px;padding:34px 0;align-items:flex-start}
+  .photo{width:160px;height:160px;border-radius:14px;background:var(--glass);display:flex;align-items:center;justify-content:center}
+  .card{background:var(--card);border-radius:12px;padding:18px;border:1px solid var(--glass);box-shadow:0 8px 20px rgba(2,6,23,0.04)}
+  .skills{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+  .skill{padding:8px 12px;border-radius:8px;background:linear-gradient(180deg, #f8fafc, #eef2ff);font-weight:700}
+  @media(max-width:820px){.hero{flex-direction:column;align-items:center;text-align:center}}
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav">
+    <div class="brand"><img src="logo.png" alt="logo"><strong>Abdul Rehman</strong></div>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html" style="color:var(--text)">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
+  <section class="hero">
+    <div style="flex:1">
+      <h2 style="margin:0 0 8px">About Me</h2>
+      <p style="color:var(--muted);max-width:680px">I’m <strong>Abdul Rehman</strong> — a focused Web-Editor who transforms simple pages into clean, modern, and accessible websites. I specialize in accessible HTML/CSS and thoughtful UI updates.</p>
+
+      <div style="margin-top:18px" class="card">
+        <h3 style="margin:0 0 8px">What I do</h3>
+        <p style="color:var(--muted);margin:0">Edit and polish layouts, improve spacing & typography, create responsive components and lightweight pages that load fast.</p>
+        <div class="skills" style="margin-top:12px">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">Responsive</div>
+          <div class="skill">UI Polishing</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="width:260px">
+      <div class="photo card">
+        <img src="logo.png" alt="logo" style="width:120px;height:120px;border-radius:10px">
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:28px">
+    <h3>Experience & Projects</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:12px">
+      <div class="card"><h4 style="margin:0">School Projects</h4><p style="color:var(--muted)">Multiple student websites & demo pages.</p></div>
+      <div class="card"><h4 style="margin:0">Freelance tasks</h4><p style="color:var(--muted)">Landing pages & simple UI fixes.</p></div>
+    </div>
+  </section>
+
+  <footer style="margin-top:32px;color:var(--muted);text-align:center">
+    © 2025 Abdul Rehman • WEB-EDITOR
+  </footer>
+</div>
+</body>
+                                                                                     </html>
