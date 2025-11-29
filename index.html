@@ -1,129 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdul Rehman | Web-Editor</title>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Abdul Rehman — Web Editor</title>
 <style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Poppins, sans-serif;
-    }
+  :root{
+    --bg:#ffffff; --card:#ffffff; --text:#111827; --muted:#6b7280;
+    --accent:#2563eb; --accent-2:#06b6d4; --glass:rgba(16,24,40,0.04);
+  }
+  [data-theme="dark"]{
+    --bg:#0b1220; --card:#071223; --text:#e6eef8; --muted:#9aa7bb;
+    --accent:#60a5fa; --accent-2:#34d399; --glass:rgba(255,255,255,0.03);
+  }
 
-    body{
-        background: #0d0d0d;
-        color: #ffffff;
-    }
+  *{box-sizing:border-box}
+  html,body{height:100%; margin:0; font-family:Inter,ui-sans-serif,system-ui,Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none}
+  .container{max-width:1100px; margin:0 auto; padding:28px;}
 
-    /* HERO SECTION */
-    .hero{
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 20px;
-        animation: fadeIn 1.5s ease-in-out;
-    }
+  /* NAV */
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{width:46px; height:46px; border-radius:8px; background:var(--glass); padding:6px;}
+  .brand h1{font-size:18px; margin:0; color:var(--text);}
+  .menu{display:flex; gap:16px; align-items:center;}
+  .menu a{padding:8px 10px; color:var(--muted); border-radius:8px; font-weight:600;}
+  .menu a.active, .menu a:hover{color:var(--text); background:var(--glass)}
+  .actions{display:flex; gap:10px; align-items:center;}
+  .btn{background:var(--accent); color:#fff; padding:8px 12px; border-radius:10px; font-weight:700; box-shadow: 0 6px 18px rgba(37,99,235,0.14);}
 
-    @keyframes fadeIn {
-        from{ opacity: 0; transform: translateY(20px); }
-        to{ opacity: 1; transform: translateY(0); }
-    }
+  /* Mobile */
+  .mobile-toggle{display:none; border:none; background:transparent; font-size:20px}
+  @media(max-width:840px){
+    .menu{display:none}
+    .mobile-toggle{display:block}
+  }
 
-    .logo{
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
-        border: 3px solid #ffcc00;
-        padding: 5px;
-        margin-bottom: 20px;
-        object-fit: cover;
-        box-shadow: 0 0 20px #ffcc00;
-    }
+  /* HERO */
+  .hero{display:flex; gap:32px; align-items:center; padding:48px 0}
+  .hero-left{flex:1;}
+  .hero-right{flex:1; display:flex; justify-content:center}
+  .title{font-size:36px; line-height:1.05; margin:0 0 14px}
+  .subtitle{color:var(--muted); margin:0 0 20px}
+  .feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px}
+  .card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 20px rgba(11,20,32,0.04); border:1px solid var(--glass)}
+  .card h3{margin:0 0 8px; font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:14px}
 
-    h1{
-        font-size: 2.4rem;
-        margin-bottom: 10px;
-    }
+  /* FOOTER */
+  footer{padding:28px 0; color:var(--muted); text-align:center; margin-top:40px}
 
-    h1 span{
-        color: #ffcc00;
-    }
+  /* small screens */
+  @media(max-width:840px){
+    .hero{flex-direction:column; text-align:center}
+    .feature-grid{grid-template-columns:repeat(1,1fr)}
+  }
 
-    p{
-        font-size: 1.1rem;
-        max-width: 450px;
-        opacity: 0.9;
-        margin-bottom: 25px;
-        line-height: 1.6;
-    }
-
-    .btn{
-        padding: 12px 28px;
-        font-size: 1rem;
-        text-decoration: none;
-        color: #0d0d0d;
-        background: #ffcc00;
-        border-radius: 30px;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .btn:hover{
-        background: #ffe680;
-        transform: translateY(-3px);
-    }
-
-    /* FOOTER */
-    footer{
-        text-align: center;
-        padding: 20px;
-        opacity: 0.6;
-        font-size: 0.9rem;
-    }
+  /* subtle fade-in */
+  .fade{opacity:0; transform:translateY(12px); transition:all 600ms ease}
+  .fade.visible{opacity:1; transform:none}
+  .theme-toggle{background:transparent;border:1px solid var(--glass); padding:8px; border-radius:10px; cursor:pointer}
 </style>
 </head>
-
 <body>
-
-<!-- HERO SECTION -->
-<div class="hero">
-   <h1>Abdul Rehman — <span>WEB-EDITOR</span></h1>
-
-    <p>I turn simple webpages into clean, modern, visually attractive designs.  
-       Editing, improving, and upgrading UI is what I love doing.</p>
-</div>
-   <nav style="width:100%; background:#111; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:fixed; top:0; left:0; z-index:999; box-shadow:0 2px 10px rgba(255,255,255,0.1);">
-    <h2 style="color:#0ef; margin:0; font-size:22px;">Abdul Rehman</h2>
-
-    <div style="display:flex; gap:20px;">
-        <a href=".hero" style="color:white; text-decoration:none; font-size:16px;">Home</a>
-        <a href="#about" style="color:white; text-decoration:none; font-size:16px;">About</a>
-        <a href="#projects" style="color:white; text-decoration:none; font-size:16px;">Projects</a>
+<div class="container">
+  <nav class="nav">
+    <div class="brand">
+      <img src="logo.png" alt="logo" id="logoImg">
+      <h1>Abdul Rehman</h1>
     </div>
-</nav>
 
-<!-- FOOTER -->
-<footer>
-   <section id="about" style="padding:80px 20px; background:#0d0d0d; color:white; text-align:center;">
-    <h1 style="font-size:40px; color:#0ef; margin-bottom:20px;">About Me</h1>
+    <div class="menu" id="menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
 
-    <p style="max-width:700px; margin:auto; line-height:1.8; font-size:18px;">
-        Hi, I’m <b>Abdul Rehman</b>, a passionate 
-        <span style="color:#0ef;">WEB-EDITOR</span> who loves creating clean,
-        modern and stylish websites.  
-        I enjoy turning ideas into responsive and smooth online experiences.  
-        Every project I work on helps me grow stronger in HTML, CSS and
-        web-editing skills.
-    </p>
-   </section>
-    © 2025 Abdul Rehman — Web-Editor
-</footer>
+    <div class="actions">
+      <button class="theme-toggle" id="themeBtn" title="Toggle theme">🌓</button>
+      <button class="btn" onclick="location.href='contact.html'">Hire Me</button>
+      <button class="mobile-toggle" id="mobileBtn">☰</button>
+    </div>
+  </nav>
 
+  <header class="hero" style="padding-top:26px">
+    <div class="hero-left">
+      <h2 class="title">Clean. Modern. Thoughtful web editing.</h2>
+      <p class="subtitle">I refine layouts, improve UI clarity, and craft lightweight webpages that look professional and load fast.</p>
+      <div>
+        <a class="btn" href="projects.html">See Projects</a>
+        <a style="margin-left:12px;color:var(--accent);font-weight:700" href="about.html">Learn more →</a>
+      </div>
+
+      <div class="feature-grid" style="margin-top:28px">
+        <div class="card fade" id="f1">
+          <h3>Responsive Design</h3>
+          <p>Mobile-first pages that adapt beautifully.</p>
+        </div>
+        <div class="card fade" id="f2">
+          <h3>Clean Code</h3>
+          <p>Easy-to-edit HTML structure for beginners.</p>
+        </div>
+        <div class="card fade" id="f3">
+          <h3>Fast & Lightweight</h3>
+          <p>Optimized markup and minimal assets.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- simple mockup card -->
+      <div class="card" style="width:320px; text-align:left">
+        <h3 style="margin-top:0">Quick Info</h3>
+        <p style="color:var(--muted)">Name: <strong>Abdul Rehman</strong></p>
+        <p style="color:var(--muted)">Role: <strong>WEB-EDITOR</strong></p>
+        <p style="color:var(--muted)">Location: Pakistan</p>
+        <div style="margin-top:12px">
+          <a href="contact.html" class="btn" style="display:inline-block">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section style="margin-top:24px">
+    <h2 style="margin-bottom:12px">Featured Work</h2>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px">
+      <div class="card fade" id="p1"><h3>Landing Page</h3><p class="muted" style="color:var(--muted)">Responsive landing for product demo.</p></div>
+      <div class="card fade" id="p2"><h3>Portfolio UI</h3><p style="color:var(--muted)">Minimal portfolio layout with cards.</p></div>
+      <div class="card fade" id="p3"><h3>Interactive Form</h3><p style="color:var(--muted)">Simple contact flow UI for clients.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <div style="max-width:900px;margin:0 auto">
+      <p>© 2025 <strong>Abdul Rehman</strong> • WEB-EDITOR — <a href="https://github.com/abdulrehman9010" style="color:var(--accent)">GitHub</a></p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // theme toggle (persists)
+  const tBtn = document.getElementById('themeBtn');
+  const preferred = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  document.documentElement.setAttribute('data-theme', preferred==='dark' ? 'dark':'');
+  tBtn.onclick = () => {
+    const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', cur==='dark' ? 'dark':'');
+    localStorage.setItem('theme', cur);
+  };
+
+  // mobile menu
+  const mobileBtn = document.getElementById('mobileBtn');
+  const menu = document.getElementById('menu');
+  mobileBtn.addEventListener('click', ()=> {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    menu.style.flexDirection = 'column';
+    menu.style.position = 'absolute';
+    menu.style.right = '20px';
+    menu.style.top = '72px';
+    menu.style.background = 'var(--card)';
+    menu.style.padding = '12px';
+    menu.style.borderRadius = '10px';
+    menu.style.boxShadow = '0 8px 30px rgba(2,6,23,0.12)';
+  });
+
+  // reveal animation
+  const fades = document.querySelectorAll('.fade');
+  setTimeout(()=> fades.forEach((el,i)=> setTimeout(()=> el.classList.add('visible'), i*120)),200);
+</script>
 </body>
-</html>
+         </html>
