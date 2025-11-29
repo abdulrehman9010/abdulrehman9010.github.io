@@ -40,20 +40,6 @@ No frameworks, no libraries — just clean and simple hand-written code.
 
 ---
 
-📂 Project Structure
-
-/
-│── index.html        → Home page
-│── about.html        → About me page
-│── contact.html      → Contact section (optional)
-│── blog.html         → blog
-│── images/           → Website logi
-│──                   → 
-│── README.md
-
-
----
-
 🚀 Live Website
 
 You can visit my website here:
