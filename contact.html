@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Contact — WebEditz</title>
+<style>
+  :root{--bg:#fff;--text:#111827;--muted:#6b7280;--card:#fff;--accent:#2563eb;--glass:rgba(16,24,40,0.04)}
+  [data-theme="dark"]{--bg:#071223;--text:#e6eef8;--muted:#9aa7bb}
+  body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
+  .container{max-width:900px;margin:0 auto;padding:28px}
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--glass);background:var(--card);color:var(--text);margin-top:10px}
+  button{background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;border:none;margin-top:12px}
+  .side{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--glass)}
+</style>
+</head><body>
+<div class="container">
+  <header style="display:flex;justify-content:space-between;align-items:center"><h2>Contact</h2><nav><a href="index.html">Home</a> · <a href="about.html">About</a></nav></header>
 
+  <main style="margin-top:18px">
+    <div class="grid">
+      <div>
+        <div style="background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--glass)">
+          <h3>Send a message</h3>
+          <input placeholder="Your name" id="name">
+          <input type="email" placeholder="Email" id="email">
+          <textarea rows="6" placeholder="Message" id="msg"></textarea>
+          <button onclick="send()">Send Message</button>
+        </div>
+        <p style="color:var(--muted);margin-top:10px">Note: This demo page doesn't send messages. You can add form backend or use email links.</p>
+      </div>
+
+      <aside class="side">
+        <h4>Contact Info</h4>
+        <p style="color:var(--muted)">Email: your-email@example.com</p>
+        <p style="color:var(--muted)">GitHub: <a href="https://github.com/abdulrehman9010">abdulrehman9010</a></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer style="margin-top:18px;color:var(--muted);text-align:center">© 2025 Abdul Rehman</footer>
+</div>
+
+<script>
+  function send(){
+    const n=document.getElementById('name').value.trim();
+    const e=document.getElementById('email').value.trim();
+    const m=document.getElementById('msg').value.trim();
+    if(!n||!e||!m){ alert('Please fill all fields'); return; }
+    // demo: opens email client (user can configure)
+    window.location.href = `mailto:your-email@example.com?subject=Message from ${encodeURIComponent(n)}&body=${encodeURIComponent(m + "\n\nFrom: " + e)}`;
+  }
+</script>
+</body></html>
